@@ -5,15 +5,9 @@ import 'dart:html';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:videoconferencias_evagd/bbb.dart';
-import 'package:videoconferencias_evagd/bbb_nube.dart';
-import 'package:videoconferencias_evagd/cisco.dart';
 import 'package:videoconferencias_evagd/google_meet.dart';
 import 'package:videoconferencias_evagd/jitsi_evagd.dart';
-import 'package:videoconferencias_evagd/jitsi_meet.dart';
-import 'package:videoconferencias_evagd/jitsi_nube.dart';
-import 'package:videoconferencias_evagd/talk.dart';
 import 'package:videoconferencias_evagd/teams.dart';
-import 'package:videoconferencias_evagd/zoom.dart';
 
 void main() => runApp(MyApp());
 
@@ -21,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Videoconferencias EVAGD',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -29,15 +23,9 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => NewGameScreen(),
         '/bbb': (context) => const BBBPage(),
-        '/bbb_nube': (context) => const BBBNubePage(),
-        '/talk': (context) => const TalkNube(),
         '/jitsi_evagd': (context) => const JitsiEVAGD(),
-        '/jitsi_nube': (context) => const JitsiNube(),
-        '/jitsi_meet': (context) => const JitsiMeet(),
         '/google_meet': (context) => const GoogleMeet(),
         '/teams': (context) => const Teams(),
-        '/cisco': (context) => const Cisco(),
-        '/zoom': (context) => const Zoom(),
       },
     );
   }
@@ -61,24 +49,12 @@ class _NewGameScreenState extends State<NewGameScreen> {
     _availablePlayers = [
       Player(id: 0, name: "BBB EVAGD", path:'/bbb',
           bools: [true,true,false,true,true,false],picture: 'assets/bbb.png'),
-      Player(id: 1, name: "BBB nube_Medusa", path: '/bbb_nube',
-          bools: [true,true,true,true,true,false], picture: 'assets/bbb_evagd.png'),
-      Player(id: 2, name: "Talk nube_Medusa", path: '/talk',
-          bools: [true,false,false,false,false,true], picture: 'assets/talk.jpeg'),
-      Player(id: 3, name: "Jitsi EVAGD", path: '/jitsi_evagd',
+      Player(id: 1, name: "Jitsi EVAGD", path: '/jitsi_evagd',
           bools: [true,false,true,false,true,true], picture: 'assets/jitsi_logo.jpeg'),
-      Player(id: 4, name: "Jitsi nube_Medusa", path: '/jitsi_nube',
-          bools: [true,false,true,false,true,true], picture: 'assets/jitsi_logo.jpeg'),
-      Player(id: 5, name: "Jitsi Meet", path: '/jitsi_meet',
-          bools: [true,false,true,false,true,true], picture: 'assets/jitsi_logo.jpeg'),
-      Player(id: 6, name: "Google Meet", path: '/google_meet',
+      Player(id: 2, name: "Google Meet", path: '/google_meet',
           bools: [false,false,true,false,true,true], picture: 'assets/google_meet.png'),
-      Player(id: 7, name: "Microsoft Teams", path: '/teams',
+      Player(id: 3, name: "Microsoft Teams", path: '/teams',
           bools: [false,true,true,false,true,false], picture: 'assets/microsoft_teams.jpeg'),
-      Player(id: 8, name: "Cisco Webex Meeting",path: '/cisco',
-          bools: [false,true,true,false,false,false], picture: 'assets/cisco.png'),
-      Player(id: 9, name: "ZOOM",path: '/zoom',
-          bools: [false,true,true,false,false,true], picture: 'assets/zoom.png'),
     ];
     _provisionalPlayers=_availablePlayers;
     //_selectedPlayers=_availablePlayers;
